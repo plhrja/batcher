@@ -17,7 +17,7 @@ def generate_should_include_1mb_ascii_input():
 
 def generate_should_include_1mb_special_character_input():
   hiragana_range = [chr(k) for k in range(12353, 12438)]
-  data = "".join(random.choices(hiragana_range, k=int(1e6 / 3) + 1))
+  data = "".join(random.choices(hiragana_range, k=int(1e6 / 3)))
   write_to_file([data], [[data]], "should_include_1mb_special_character_input.json")
 
 def generate_should_maintain_order_over_optimal_filling():
