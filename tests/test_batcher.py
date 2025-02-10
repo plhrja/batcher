@@ -2,7 +2,7 @@ import pytest
 import json
 from batcher import batcher
 
-def test_batch_should_return_empty_list_for_empty_input():
+def test_batch_returns_empty_list_for_empty_input():
   assert batcher.batch([]) == []
 
 def test_batch_should_raise_type_error_for_none_input():
@@ -32,7 +32,7 @@ def test_batch_should_maintain_order_of_records(long_range_input):
   "tests/testdata/should_maintain_order_over_optimal_filling.json"
 ])
 def test_batch_should_batch_according_to_testdata_configurationd(input_file: str):
-  with open(input_file) as file:
+  with open(input_file, encoding="utf-8") as file:
     data = json.load(file)
     batches = batcher.batch(data["input"])
     assert batches == data["expected"]
