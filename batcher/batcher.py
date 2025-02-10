@@ -31,7 +31,7 @@ def batch(
     if record_size > max_record_size:
       continue
 
-    if len(current_batch) == max_batch_len or current_batch_size == max_batch_size:
+    if len(current_batch) == max_batch_len or current_batch_size + record_size > max_batch_size:
       batches.append(current_batch)
       current_batch = []
       current_batch_size = 0
