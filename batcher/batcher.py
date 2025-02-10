@@ -1,8 +1,8 @@
 
 def batch(
     records: list[str],
-    max_record_size: int = int(1e6),
-    max_batch_size: int = int(5e6),
+    max_record_size: int = 10**6,
+    max_batch_size: int = 5 * 10**6,
     max_batch_len: int = 500
 ) -> list[list[str]]:
   """
